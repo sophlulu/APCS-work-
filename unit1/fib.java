@@ -1,4 +1,4 @@
-public class Fibonacci {
+public class fib {
     public static void main(String[] args) {
         int a = 1; // First term
         int b = 1; // Second term
