@@ -1,28 +1,30 @@
-# Function definition
-def greetings(name):
-    """
-    Returns a greeting message for the given name.
+// Greetings.java
+//
 
-    Args:
-        name (str): The name to include in the greeting.
-    
-    Returns:
-        str: A greeting message.
-    """
-    return f"Hello, {name}, how are you?"
 
-# Unit tests
-import unittest
 
-class TestGreetingsFunction(unittest.TestCase):
-    def test_greetings(self):
-        self.assertEqual(greetings("Dr. Kessner"), "Hello, Dr. Kessner, how are you?")
-        self.assertEqual(greetings("Ascii Cat"), "Hello, Ascii Cat, how are you?")
-        self.assertEqual(greetings("Sydneys"), "Hello, Sydneys, how are you?")
-        self.assertEqual(greetings("John"), "Hello, John, how are you?")
-        self.assertEqual(greetings(""), "Hello, , how are you?")  # Edge case: Empty string
+public class greetings
+{
+    public static void main(String[] args)
+    {
+        String greeting = "Dr. Kessner";
+        System.out.println(hello, Dr. Kessner, how are you?);
 
-# Run tests
-if __name__ == "__main__":
-    unittest.main()
-NN
+        String greeting = "Ascii Cat";
+        System.out.println(Hello, Ascii Cat, how are you?);
+        
+        
+        String greeting = "Sydneys";
+        System.out.println(Hello, Sydneys, how are you?);
+        
+        
+        
+        System.out.println("length:" + hello.length());
+
+        String firstPart = hello.substring(0,5); 
+        System.out.println("firstPart:" + firstPart);
+
+        String secondPart = hello.substring(5); // equivalent to substring(0,10)
+        System.out.println("secondPart:" + secondPart);
+    }
+}
