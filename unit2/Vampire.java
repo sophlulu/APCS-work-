@@ -1,26 +1,36 @@
-public class VampireCheck {
+//vampire.java
 
-    // Function to determine if the person is a vampire
-    public static boolean isVampire(float hour, boolean awake) {
-        // Waking hours are between 6:00 (6.0) and 22:00 (22.0)
-        boolean isWakingHours = hour >= 6.0 && hour <= 22.0;
+public class Vampire
+{
+    public static boolean isVampire(float hour, boolean awake){
+        if (hour < 6.0f || hour > 22.0f){
+        return false;
+        }
+        return true;
+    }
+    
+     public static void testVampire(float hour, boolean awake, boolean expected)
+    {
+        boolean result = isVampire(hour, awake);
+        
+        System.out.print("hour: " + hour +
+                " awake: " + awake + " expected: " + expected +
+                " result: " + result + " ");
 
-        // A person is a vampire if they are awake during sleeping hours or asleep during waking hours
-        return (awake && !isWakingHours) || (!awake && isWakingHours);
+        if (result == expected)
+            System.out.println("Yes!");
+        else
+            System.out.println("No!");
+
     }
 
-    // Function to test isVampire with multiple test cases
-    public static void testIsVampire() {
-        System.out.println(isVampire(5.5f, true) == true ? "Pass" : "Fail");  // Awake before 6:00
-        System.out.println(isVampire(6.5f, false) == true ? "Pass" : "Fail"); // Asleep during waking hours
-        System.out.println(isVampire(21.5f, false) == true ? "Pass" : "Fail"); // Asleep during waking hours
-        System.out.println(isVampire(23.0f, true) == true ? "Pass" : "Fail"); // Awake after 22:00
-        System.out.println(isVampire(10.0f, true) == false ? "Pass" : "Fail"); // Awake during waking hours
-        System.out.println(isVampire(2.0f, false) == false ? "Pass" : "Fail"); // Asleep during sleeping hours
-    }
-
-    // Main method
-    public static void main(String[] args) {
-        testIsVampire();
-    }
+     public static void main(String[] args)
+     {
+         System.out.println();
+        testVampire(3.5f, false, false);
+        testVampire(7f, true, true);
+        testVampire(23.2f, false, false);
+        testVampire(17.9f, true, true);
+         System.out.println();
+     }
 }
