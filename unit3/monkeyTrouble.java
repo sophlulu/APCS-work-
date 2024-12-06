@@ -10,7 +10,7 @@ public class monkeyTrouble
 
     public static void testMonkeyTrouble(boolean aSmile,
             boolean bSmile, boolean expected)
-    {
+   N {
         boolean result = monkeyTrouble(aSmile, bSmile);
         
         System.out.print("aSmile: " + aSmile +
