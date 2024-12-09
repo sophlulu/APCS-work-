@@ -1,30 +1,39 @@
-// Greetings.java
-//
+//Greetings.java
 
 
-
-public class greetings
+public class Greetings
 {
+    
+    public static String greetings(String name) {
+        String str1 = "Hello, ";
+        String str2 = ", how are you?";
+        
+        String str = str1.substring(0) + name + str2.substring(0);
+  
+        return str;
+} 
+  
+    
+     public static void testgreetings(String name, String expected, String result)
+    {
+        result = greetings(name);
+        
+        System.out.print("name: " + name +
+                " expected: " + expected +
+                " result: " + result + " ");
+
+        if (result.equals(expected))
+            System.out.println("Yes");
+        else
+            System.out.println("No!");
+
+    }
+
+    
     public static void main(String[] args)
     {
-        String greeting = "Dr. Kessner";
-        System.out.println(hello, Dr. Kessner, how are you?);
-
-        String greeting = "Ascii Cat";
-        System.out.println(Hello, Ascii Cat, how are you?);
-        
-        
-        String greeting = "Sydneys";
-        System.out.println(Hello, Sydneys, how are you?);
-        
-        
-        
-        System.out.println("length:" + hello.length());
-
-        String firstPart = hello.substring(0,5); 
-        System.out.println("firstPart:" + firstPart);
-
-        String secondPart = hello.substring(5); // equivalent to substring(0,10)
-        System.out.println("secondPart:" + secondPart);
+        testgreetings("Dr. Kessner","Hello, Dr. Kessner, how are you?", "Hello, Dr. Kessner, how are you?");
+        testgreetings("Ascii Cat","Hello, Ascii Cat, how are you?", "Hello, Ascii Cat, how are you?");
+        testgreetings("Sydneys","Hello, Sydneys, how are you?", "Hello, Sydneys, how are you?");
     }
 }
