@@ -1,7 +1,7 @@
 //stringtime.java
 
 
-public class Stringtime
+public class stringTime
 {
     
     public static String stringTimes(String str, int n) {
@@ -32,8 +32,8 @@ public class Stringtime
     public static void main(String[] args)
     {
         teststringTimes("Hi", 2, "HiHi", "HiHi");
-            teststringTimes("Hi", 3, "HiHiHi", "HiHiHi");
-            teststringTimes("Hi", 1, "Hi", "Hi");
+        teststringTimes("Hi", 3, "HiHiHi", "HiHiHi");
+        teststringTimes("Hi", 1, "Hi", "Hi");
     }
 }
    
