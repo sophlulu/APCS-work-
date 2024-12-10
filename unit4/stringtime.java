@@ -1,7 +1,7 @@
 //stringtime.java
 
 
-public class stringtime
+public class Stringtime
 {
     
     public static String stringTimes(String str, int n) {
@@ -16,7 +16,7 @@ public class stringtime
     {
         result = stringTimes(str, n);
         
-        System.out.println("str: " + str +
+        System.out.println(" str: " + str +
                          " num: " + n +
                 " expected: " + expected +
                 " result: " + result);
