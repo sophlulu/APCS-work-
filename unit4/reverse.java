@@ -31,6 +31,8 @@ public class reverse
         testreverse("bad", "dab");
         testreverse("Hello, world!", "!dlrow ,olleH");
         testreverse("tacocat", "tacocat");
+        testreverse("bannana, anannaB");
+        testreverse("hannah, hannah");
         
         
     }
