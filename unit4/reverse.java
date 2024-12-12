@@ -6,7 +6,15 @@ public class reverse
     public static String reverse(String input) 
     {
         
-        return"";
+        String result = "";
+        
+        for(int i= input.length() - 1; i>=0; i--){
+            
+            result+= input.substring(i,i+1);
+            
+        }
+        
+        return result;
     } 
   
     
@@ -31,7 +39,7 @@ public class reverse
         testreverse("bad", "dab");
         testreverse("Hello, world!", "!dlrow ,olleH");
         testreverse("tacocat", "tacocat");
-        testreverse("bannana", "anannaB");
+        testreverse("bannana", "anannab");
         testreverse("hannah", "hannah");
         
         
