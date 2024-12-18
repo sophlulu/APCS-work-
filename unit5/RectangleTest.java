@@ -11,6 +11,7 @@ public class RectangleTest
         System.out.println(c.area());
         System.out.println(c.perimeter());
 
+        
     }
 }
 
