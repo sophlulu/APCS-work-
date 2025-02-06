@@ -19,7 +19,7 @@ public class SumOfSquaresAL
 
     public static void testSumOfSquaresAL(ArrayList<Double> values, double expected)
     {
-        double result = sumOfSquares(values);
+        double result = sumOfSquaresAL(values);
 
         System.out.print("values: ");
         for (double value : values)
@@ -36,24 +36,24 @@ public class SumOfSquaresAL
     {
     
         ArrayList<Double> numbers1 = new ArrayList<Double>();
-        numbers1.add(1);
-        numbers1.add(2);
-        numbers1.add(3);
+        numbers1.add(1.0);
+        numbers1.add(2.0);
+        numbers1.add(3.0);
     
         ArrayList<Double> numbers2 = new ArrayList<Double>();
-        numbers2.add(2);
-        numbers2.add(2);
-        numbers2.add(2);
+        numbers2.add(2.0);
+        numbers2.add(2.0);
+        numbers2.add(2.0);
         
         ArrayList<Double> numbers3 = new ArrayList<Double>();
-        numbers3.add(3);
-        numbers3.add(3);
-        numbers3.add(3);
+        numbers3.add(3.0);
+        numbers3.add(3.0);
+        numbers3.add(3.0);
         
 
 
-        testSumOfSquaresAL(values1, 0.0);
-        testSumOfSquaresAL(values2, 14.0);
-        testSumOfSquaresAL(values3, 12.0);
+        testSumOfSquaresAL(numbers1, 0.0);
+        testSumOfSquaresAL(numbers2, 14.0);
+        testSumOfSquaresAL(numbers3, 12.0);
     }
 }
