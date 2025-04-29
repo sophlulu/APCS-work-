@@ -1,4 +1,4 @@
-/ Aliangame.java
+// Aliangame.java
 
 
 
@@ -10,7 +10,7 @@ public class Aliangame extends PApplet
 {
   public int gameScreen, character, score, highScore, newScore;
   public int pColor;
-  public PImage img, oImg, oImg1, background, bg;
+  public PImage img, oImg, oImg1, bg;
   public PFont font;
   public int b1, b2, y1, y2;
   public String[] list;
@@ -27,7 +27,10 @@ public class Aliangame extends PApplet
     character = 0;
 
 
-    bg = loadImage("background.png");
+    bg = loadImage("background.jpg");
+     if (bg == null) {
+        println("Failed to load background image");
+        }
     oImg = loadImage("object.png");
     oImg = loadImage("player.png");
     
@@ -47,6 +50,9 @@ public class Aliangame extends PApplet
 
   public void draw()
   {
+    
+
+    
     imageMode(CORNERS);
     image(bg, 0, 0, width, height);
     textFont(font);
@@ -62,7 +68,7 @@ public class Aliangame extends PApplet
   public void playerScreen()
   {
      imageMode(CORNERS);
-    image(bg, 0, 0);
+    //image(bg, 10, 10);
     textAlign(CENTER);
     textSize(100);
     fill(0);
