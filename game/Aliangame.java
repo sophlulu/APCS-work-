@@ -1,4 +1,4 @@
-// Aliangame.java
+/ Aliangame.java
 
 
 
@@ -10,8 +10,11 @@ public class Aliangame extends PApplet
 {
   public int gameScreen, character, score, highScore, newScore;
   public int pColor;
+  public PImage img, oImg, oImg1, background, bg;
+  public PFont font;
   public int b1, b2, y1, y2;
   public String[] list;
+  public String scores;
 
   public void settings()
   {
@@ -23,9 +26,14 @@ public class Aliangame extends PApplet
     gameScreen = 0;
     character = 0;
 
-    background(0);
 
-    player = new player(this);
+    bg = loadImage("background.png");
+    oImg = loadImage("object.png");
+    oImg = loadImage("player.png");
+    
+    font = createFont("Raavi",50);
+    
+    //font = loadStrings("highscores.txt");
 
     objects = new ArrayList<objects>();
     createObject();
@@ -33,13 +41,16 @@ public class Aliangame extends PApplet
 
   public void createObject()
   {
-    objects o = new objects(this);
 
-    objects.add(o);
+    //objects.add(o);
   }
 
   public void draw()
   {
+    imageMode(CORNERS);
+    image(bg, 0, 0, width, height);
+    textFont(font);
+    
     if (gameScreen == 0)
       playerScreen();
     else if (gameScreen == 1)
@@ -50,7 +61,11 @@ public class Aliangame extends PApplet
 
   public void playerScreen()
   {
-    
+     imageMode(CORNERS);
+    image(bg, 0, 0);
+    textAlign(CENTER);
+    textSize(100);
+    fill(0);
   }
 
   public void gameScreen()
@@ -62,6 +77,16 @@ public class Aliangame extends PApplet
 
     if(score > 0)
     {
+      
+      textAlign(CENTER);
+    fill(b2);
+    textSize(65);
+    text("Score: "+ newScore, width/2, 200);
+
+    textAlign(RIGHT);
+    textSize(40);
+    text("High Score: " + highScore, width - 50, 100);
+    
       int a = 250;
       if((score % a == 0) || score % 75 == 0) createObject();
 
@@ -94,7 +119,6 @@ public class Aliangame extends PApplet
 
   public void gameOverScreen()
   {
-    player = new player(this);
     objects = new ArrayList<objects>();
     player.display();
 
@@ -139,16 +163,18 @@ public class Aliangame extends PApplet
       if (gameScreen == 0 || gameScreen == 2)
       {
         gameScreen = 1;
-        player = new player(this);
       }
     }
   }
 
   public static void main(String[] args)
   {
-      PApplet.main("Game");
+      PApplet.main("Aliangame");
   }
 
   private player player;
   private ArrayList<objects> objects;
 }
+
+
+
