@@ -36,8 +36,8 @@ public class Aliangame extends PApplet
     
     font = createFont("Raavi",50);
     
-     list = loadStrings("highscores.txt");
-    highScore = Integer.parseInt(list[list.length - 1]);
+     //list = loadStrings("highscores.txt");
+    //highScore = Integer.parseInt(list[list.length - 1]);
    
    //player = new Player(this, img);
    
@@ -92,7 +92,7 @@ public class Aliangame extends PApplet
     text("use the RIGHT & LEFT ARROW keys to help", width/2, 350);
     text("press SPACE when you are ready", width/2, 425);
 
-    if (character == 0)
+    /*if (character == 0)
       img = loadImage("spongebob.png");
     else if (character == 1)
       img = loadImage("patrick.png");
@@ -112,8 +112,9 @@ public class Aliangame extends PApplet
       img = loadImage("gary.png");
     }
     else
-      character = 0;
-
+      character = 0;*/
+      
+    img = loadImage("player.png");
     imageMode(CENTER);
     image(img, width/2 - 200, height/2 + 150);
   
@@ -144,12 +145,12 @@ public class Aliangame extends PApplet
       int a = 250;
       if((score % a == 0) || score % 75 == 0) createObject();
 
-      /*for(objects o: objects)
+      for(objects o: objects)
       {
         int n = (int)(Math.random()*3) + 1;
         int num = (int)(Math.random()*2);
          o.pos.y -= n;
-      }*/
+      }
 
       if(score > 500)
       {
