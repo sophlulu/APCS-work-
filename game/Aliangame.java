@@ -10,7 +10,7 @@ public class Aliangame extends PApplet
 {
   public int gameScreen, character, score, highScore, newScore;
   public int pColor;
-  public PImage img, oImg, oImg1, bg;
+  public PImage img, oImg, pImg, oImg1, bg;
   public PFont font;
   public int b1, b2, y1, y2;
   public String[] list;
@@ -32,36 +32,42 @@ public class Aliangame extends PApplet
         println("Failed to load background image");
         }
     oImg = loadImage("object.png");
-    oImg = loadImage("player.png");
+    pImg = loadImage("player.png");
     
     font = createFont("Raavi",50);
     
-    //font = loadStrings("highscores.txt");
-
-    objects = new ArrayList<objects>();
+     list = loadStrings("highscores.txt");
+    highScore = Integer.parseInt(list[list.length - 1]);
+   
+   //player = new Player(this, img);
+   
+   objects = new ArrayList<objects>();
+    player = new player(this, pImg);
     createObject();
+    
+        //b1 = color(55, 176, 201);
+    //b2 = color(25, 79, 144);
+    //y1 = color(247, 235, 98);
+    //y2 = color(187, 179, 34);
   }
 
   public void createObject()
   {
-
-    //objects.add(o);
+    objects.add(new objects(this, oImg));
   }
 
   public void draw()
   {
-    
-
-    
     imageMode(CORNERS);
     image(bg, 0, 0, width, height);
     textFont(font);
     
-    if (gameScreen == 0)
+    if (gameScreen == 0) {
       playerScreen();
-    else if (gameScreen == 1)
+      } else if (gameScreen == 1) {
       gameScreen();
-    else if (gameScreen == 2)
+      }
+    else if (gameScreen == 1)
       gameOverScreen();
   }
 
@@ -72,12 +78,54 @@ public class Aliangame extends PApplet
     textAlign(CENTER);
     textSize(100);
     fill(0);
+  
+  text("CHOOSE YOUR CHARACTER", width/2 - 15, 215);
+    fill(y2);
+    text("CHOOSE YOUR CHARACTER", width/2, 203);
+    fill(y1);
+    text("CHOOSE YOUR CHARACTER", width/2 - 9, 210);
+    textSize(50);
+    fill(150);
+    text("use the RIGHT & LEFT ARROW keys to help", width/2 + 5, 350);
+    text("press SPACE when you are ready", width/2 + 5, 425);
+    fill(255);
+    text("use the RIGHT & LEFT ARROW keys to help", width/2, 350);
+    text("press SPACE when you are ready", width/2, 425);
+
+    if (character == 0)
+      img = loadImage("spongebob.png");
+    else if (character == 1)
+      img = loadImage("patrick.png");
+    else if (character == 2)
+      img = loadImage("squidward.png");
+    else if (character == 3)
+      img = loadImage("mrkrabs.png");
+    else if (character == 4)
+      img = loadImage("plankton.png");
+    else if (character == 5)
+      img = loadImage("sandy.png");
+    else if (character == 6)
+      img = loadImage("gary.png");
+    else if (character == -1)
+    {
+      character = 6;
+      img = loadImage("gary.png");
+    }
+    else
+      character = 0;
+
+    imageMode(CENTER);
+    image(img, width/2 - 200, height/2 + 150);
+  
+  
+  
+  
   }
 
   public void gameScreen()
   {
     score++;
-    player.move();
+    player.update();
     player.display();
 
 
@@ -96,11 +144,12 @@ public class Aliangame extends PApplet
       int a = 250;
       if((score % a == 0) || score % 75 == 0) createObject();
 
-      for(objects o: objects)
+      /*for(objects o: objects)
       {
         int n = (int)(Math.random()*3) + 1;
-        o.pos.y -= n;
-      }
+        int num = (int)(Math.random()*2);
+         o.pos.y -= n;
+      }*/
 
       if(score > 500)
       {
@@ -116,6 +165,7 @@ public class Aliangame extends PApplet
     {
       o.move();
       o.display();
+      System.out.println("displau");
       if(hits(o))
       {
         gameScreen = 2;
@@ -169,6 +219,9 @@ public class Aliangame extends PApplet
       if (gameScreen == 0 || gameScreen == 2)
       {
         gameScreen = 1;
+      }
+      if (gameScreen == 1) {
+        player.jump();
       }
     }
   }

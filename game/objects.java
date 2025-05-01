@@ -17,12 +17,13 @@ public class objects
     this.img = img;
     r = 255;
     num = (int)(Math.random()*300 + 100);
-    pos = new PVector(o.width, o.height - r - num);
+    pos = new PVector(o.width,  o.height - r - num);
+    img.resize(200, 200);
   }
 
   public void move()
   {
-    pos.y -= 11;
+    pos.x -= 11;
   }
 
   public void display()
