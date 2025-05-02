@@ -9,6 +9,7 @@ public class objects
   public float r;
   public int num;
   public PImage img;
+    public float moveSpeed = 11;
 
 
   public objects(PApplet o, PImage img)
@@ -18,16 +19,25 @@ public class objects
     r = 255;
     num = (int)(Math.random()*300 + 100);
     pos = new PVector(o.width,  o.height - r - num);
-    img.resize(200, 200);
+    img.resize(100, 0);
   }
+    
+
+    public boolean passes(player player) {
+        if (pos.x + img.width < player.pos.x && pos.x + img.width > player.pos.x - moveSpeed) {
+            return true;
+        }
+        return false;
+    }
 
   public void move()
   {
-    pos.x -= 11;
+    pos.x -= moveSpeed;
   }
 
   public void display()
   {
+      moveSpeed = 11 + o.millis() / 4000;
       o.image(img, pos.x, pos.y);
       o.rect(pos.x, pos.y, 10, 20);
   }

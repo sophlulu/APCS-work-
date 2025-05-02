@@ -9,15 +9,18 @@ public class player
   public float r;
   //public int c;
   public PImage img;
+    public int jumpSpeed;
 
   public player(PApplet p, PImage img)
   {
     this.p = p;
     this.img = img;
+    img.resize(100, 0);
     r = 255;
     pos = new PVector(150, p.height - r - img.height);
-    vel = new PVector(0, 5);
-    gravity = new PVector(0, 4);
+    jumpSpeed = -30;
+    vel = new PVector(0, 0);
+    gravity = new PVector(0, 3);
     acc = gravity;
   }
 
@@ -29,7 +32,7 @@ public class player
   public void jump()
   {
     //if(pos.y <= p.height - r - img.height)
-      vel.y = -50;
+      vel.y = jumpSpeed;
   }
 
   public void update()
@@ -43,6 +46,16 @@ public class player
   public void display()
   {
     p.image(img, pos.x, pos.y);
+  }
+    
+  public boolean hitsTop() {
+      if (pos.y <= 10) return true;
+      return false;
+  
+  //public boolean hitsBottom() {
+      //if (pos.y <= 10) return true;
+      //return false;
+      
   }
 
   private PApplet p;
