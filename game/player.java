@@ -40,7 +40,7 @@ public class player
     pos.add(vel);
     vel.add(acc);
     //vel.y += gravity.y;
-    pos.y = p.constrain(pos.y, 0, p.height - r - img.height);
+    //pos.y = p.constrain(pos.y, 0, p.height - r - img.height);
   }
 
   public void display()
@@ -51,11 +51,15 @@ public class player
   public boolean hitsTop() {
       if (pos.y <= 10) return true;
       return false;
+  }
   
-  //public boolean hitsBottom() {
-      //if (pos.y <= 10) return true;
-      //return false;
+  public boolean hitsBottom() {
+      if (pos.y > p.height - img.height) {
+          return true;
+      }
+      return false;
       
+  
   }
 
   private PApplet p;
